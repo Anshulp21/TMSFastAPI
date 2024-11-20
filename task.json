@@ -1,0 +1,103 @@
+{
+    "base_url": "http://127.0.0.1:8000",
+    "endpoints": [
+      {
+        "name": "Login",
+        "description": "Authenticates the user and returns a JWT token.",
+        "url": "/login",
+        "method": "POST",
+        "request_body": {
+          "username": "string",
+          "password": "string"
+        },
+        "response": {
+          "access_token": "string"
+        }
+      },
+      {
+        "name": "Create Task",
+        "description": "Creates a new task.",
+        "url": "/tasks",
+        "method": "POST",
+        "request_body": {
+          "title": "string",
+          "description": "string",
+          "status": "string",
+          "due_date": "string (yyyy-mm-dd)"
+        },
+        "response": {
+          "id": "integer",
+          "title": "string",
+          "description": "string",
+          "status": "string",
+          "due_date": "string (yyyy-mm-dd)"
+        }
+      },
+      {
+        "name": "Get All Tasks",
+        "description": "Retrieves all tasks.",
+        "url": "/tasks",
+        "method": "GET",
+        "response": [
+          {
+            "id": "integer",
+            "title": "string",
+            "description": "string",
+            "status": "string",
+            "due_date": "string (yyyy-mm-dd)"
+          }
+        ]
+      },
+      {
+        "name": "Get Task by ID",
+        "description": "Fetches a task by its ID.",
+        "url": "/tasks/{task_id}",
+        "method": "GET",
+        "url_parameters": {
+          "task_id": "integer"
+        },
+        "response": {
+          "id": "integer",
+          "title": "string",
+          "description": "string",
+          "status": "string",
+          "due_date": "string (yyyy-mm-dd)"
+        }
+      },
+      {
+        "name": "Update Task",
+        "description": "Updates a task by its ID.",
+        "url": "/tasks/{task_id}",
+        "method": "PUT",
+        "url_parameters": {
+          "task_id": "integer"
+        },
+        "request_body": {
+          "title": "string",
+          "description": "string",
+          "status": "string",
+          "due_date": "string (yyyy-mm-dd)"
+        },
+        "response": {
+          "id": "integer",
+          "title": "string",
+          "description": "string",
+          "status": "string",
+          "due_date": "string (yyyy-mm-dd)"
+        }
+      },
+      {
+        "name": "Delete Task",
+        "description": "Deletes a task by its ID.",
+        "url": "/tasks/{task_id}",
+        "method": "DELETE",
+        "url_parameters": {
+          "task_id": "integer"
+        },
+        "response": {
+          "message": "Task deleted successfully"
+        }
+      }
+    ]
+  }
+  
